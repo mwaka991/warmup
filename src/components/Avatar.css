@@ -1,0 +1,187 @@
+/* Avatar component styling */
+.profile-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid white;
+  position: relative;
+}
+
+.profile-avatar:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary, #4a90e2);
+  color: white;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+  font-weight: 600;
+}
+
+.avatar-tiny {
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+}
+
+.avatar-small {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+
+.avatar-medium {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+
+.avatar-large {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.avatar-loading {
+  position: relative;
+  overflow: hidden !important;
+}
+
+.avatar-loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.avatar-xlarge {
+  width: 150px;
+  height: 150px;
+  font-size: 60px;
+}
+
+.avatar-xxlarge {
+  width: 200px;
+  height: 200px;
+  font-size: 80px;
+}
+
+.avatar-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading-bg 1.5s infinite;
+}
+
+@keyframes loading-bg {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Message specific avatar */
+.message-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.navbar-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+/* Ensure all avatar containers are circles */
+.avatar-container,
+.message-avatar-container,
+.navbar-avatar-container {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+/* Ensure all avatar images maintain aspect ratio and fill container */
+img.avatar-image, 
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Fix for specific avatar instances that might need additional styling */
+img.avatar-image, 
+img.message-avatar, 
+img.navbar-avatar {
+  border-radius: 50% !important;
+  object-fit: cover !important;
+}
+
+/* Theming support */
+.dark-theme .avatar {
+  border-color: #2d2d2d;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.pastel-theme .avatar {
+  border-color: #f6f6f6;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Make sure all avatar images fill their circular container properly */
+.avatar img, 
+.avatar-image,
+img.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50% !important;
+  aspect-ratio: 1/1; /* Enforce 1:1 aspect ratio */
+} 

@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is signed in
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    // Helper function to validate a message
+    function isValidMessage() {
+      return request.resource.data.keys().hasAll(['text', 'createdAt', 'uid']) &&
+             request.resource.data.text is string &&
+             request.resource.data.text.size() > 0 &&
+             request.resource.data.text.size() <= 500 &&
+             request.resource.data.uid == request.auth.uid;
+    }
+    
+    // Messages collection rules
+    match /messages/{messageId} {
+      // Any authenticated user can read messages
+      allow read: if isSignedIn();
+      
+      // Any authenticated user can create messages
+      allow create: if isSignedIn() && 
+                      request.resource.data.uid == request.auth.uid;
+      
+      // Users can only update or delete their own messages
+      allow update, delete: if isSignedIn() && 
+                              resource.data.uid == request.auth.uid;
+    }
+    
+    // Settings collection rules
+    match /settings/{document=**} {
+      // Anyone can read settings if authenticated
+      allow read: if isSignedIn();
+      
+      // Only authenticated users can write settings
+      // In a real app, this would typically be restricted to admins
+      allow write: if isSignedIn();
+    }
+    
+    // User Profiles collection rules
+    match /userProfiles/{userId} {
+      // Anyone can read profiles
+      allow read: if isSignedIn();
+      
+      // Users can only write to their own profile
+      allow write: if isSignedIn() && 
+                     userId == request.auth.uid;
+    }
+    
+    // Typing status collection rules
+    match /typing/{userId} {
+      // Anyone can read typing status
+      allow read: if isSignedIn();
+      
+      // Users can only update their own typing status
+      allow write: if isSignedIn() && 
+                     userId == request.auth.uid;
+    }
+  }
+}

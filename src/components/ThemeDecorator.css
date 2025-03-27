@@ -1,0 +1,438 @@
+.theme-decorator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+  pointer-events: none; /* Make sure it doesn't interfere with user interactions */
+  overflow: hidden;
+}
+
+/* Apply decorator only to chat page */
+.chat-only-decorator {
+  z-index: 0; /* Higher than -10 but still behind content */
+}
+
+.decorator-element {
+  position: absolute;
+  opacity: 0.15;
+  transform-origin: center;
+  transition: all 0.5s ease;
+}
+
+/* Light theme decorations - Adding more patterns */
+.theme-light .circle-1 {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a90e2, #60a5fa);
+  top: -100px;
+  right: -100px;
+  animation: float 15s ease-in-out infinite;
+  box-shadow: 0 0 80px rgba(74, 144, 226, 0.2);
+}
+
+.theme-light .circle-2 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3a7bc8, #4a90e2);
+  bottom: -50px;
+  left: -50px;
+  animation: float 10s ease-in-out infinite reverse;
+  box-shadow: 0 0 60px rgba(74, 144, 226, 0.15);
+}
+
+.theme-light .square-1 {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #4a90e2, #3a7bc8);
+  border-radius: 10px;
+  top: 30%;
+  left: 10%;
+  transform: rotate(45deg);
+  animation: rotate 20s linear infinite;
+  box-shadow: 0 0 30px rgba(74, 144, 226, 0.1);
+}
+
+.theme-light .square-2 {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #60a5fa, #4a90e2);
+  border-radius: 10px;
+  bottom: 20%;
+  right: 15%;
+  transform: rotate(30deg);
+  animation: rotate 15s linear infinite reverse;
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.1);
+}
+
+/* Add grid patterns for light theme */
+.theme-light::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(74, 144, 226, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 144, 226, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: pulse 15s infinite alternate;
+}
+
+/* Add subtle waves for light theme */
+.theme-light::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 40px,
+    rgba(74, 144, 226, 0.02) 40px,
+    rgba(74, 144, 226, 0.02) 42px
+  );
+  transform: skewY(-3deg);
+  transform-origin: bottom left;
+}
+
+/* Dark theme decorations - Enhanced stars and cosmic feel */
+.theme-dark .star-1, 
+.theme-dark .star-2, 
+.theme-dark .star-3 {
+  background: radial-gradient(circle at center, #60a5fa 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.theme-dark .star-1 {
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 0 20px 2px #60a5fa;
+  top: 20%;
+  left: 30%;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.theme-dark .star-2 {
+  width: 6px;
+  height: 6px;
+  box-shadow: 0 0 25px 3px #60a5fa;
+  top: 40%;
+  right: 20%;
+  animation: twinkle 5s ease-in-out 0.5s infinite;
+}
+
+.theme-dark .star-3 {
+  width: 5px;
+  height: 5px;
+  box-shadow: 0 0 22px 2px #60a5fa;
+  bottom: 30%;
+  left: 40%;
+  animation: twinkle 4s ease-in-out 1s infinite;
+}
+
+.theme-dark .line-1 {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.3), transparent);
+  top: 35%;
+  animation: move-x 15s linear infinite;
+}
+
+.theme-dark .line-2 {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(0deg, transparent, rgba(96, 165, 250, 0.3), transparent);
+  left: 65%;
+  animation: move-y 20s linear infinite;
+}
+
+/* Add constellation pattern to dark theme */
+.theme-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px at 50px 50px, rgba(96, 165, 250, 0.2) 50%, transparent 100%),
+    radial-gradient(1px at 150px 150px, rgba(96, 165, 250, 0.15) 50%, transparent 100%),
+    radial-gradient(1px at 250px 100px, rgba(96, 165, 250, 0.1) 50%, transparent 100%),
+    radial-gradient(1px at 320px 220px, rgba(96, 165, 250, 0.1) 50%, transparent 100%),
+    radial-gradient(1px at 100px 300px, rgba(96, 165, 250, 0.15) 50%, transparent 100%),
+    radial-gradient(1px at 390px 350px, rgba(96, 165, 250, 0.1) 50%, transparent 100%);
+  background-size: 400px 400px;
+  background-repeat: repeat;
+}
+
+/* Add northern lights effect to dark theme */
+.theme-dark::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 400px;
+  background: 
+    linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(32, 156, 255, 0.05) 20%, 
+      rgba(96, 165, 250, 0.07) 30%, 
+      rgba(72, 149, 239, 0.03) 70%, 
+      transparent 100%
+    );
+  filter: blur(30px);
+  transform: skewY(-5deg) translateY(-50%);
+  animation: aurora 20s ease infinite alternate;
+}
+
+/* Pastel theme decorations - Enhanced soft blobs */
+.theme-pastel .blob-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at 30% 70%, rgba(149, 195, 232, 0.3), transparent 70%);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  animation: pulse 15s ease-in-out infinite;
+  filter: blur(30px);
+}
+
+.theme-pastel .blob-2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at 70% 30%, rgba(179, 157, 219, 0.3), transparent 70%);
+  border-radius: 50%;
+  bottom: -50px;
+  left: -50px;
+  animation: pulse 12s ease-in-out 2s infinite reverse;
+  filter: blur(25px);
+}
+
+.theme-pastel .blob-3 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle at 40% 60%, rgba(165, 214, 167, 0.3), transparent 70%);
+  border-radius: 50%;
+  top: 60%;
+  right: 10%;
+  animation: pulse 10s ease-in-out 1s infinite;
+  filter: blur(20px);
+}
+
+.theme-pastel .dot-grid {
+  width: 300px;
+  height: 300px;
+  background-image: 
+    radial-gradient(rgba(179, 157, 219, 0.2) 1px, transparent 1px),
+    radial-gradient(rgba(149, 195, 232, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  top: 30%;
+  left: 20%;
+  animation: float 20s ease-in-out infinite;
+}
+
+/* Add confetti pattern to pastel theme */
+.theme-pastel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(45deg, rgba(149, 195, 232, 0.06) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(179, 157, 219, 0.06) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(165, 214, 167, 0.06) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 213, 79, 0.06) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  animation: shifting 30s linear infinite;
+}
+
+/* Add rainbow stripe to pastel theme */
+.theme-pastel::after {
+  content: '';
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  top: 70%;
+  height: 300px;
+  background: 
+    linear-gradient(90deg, 
+      rgba(255, 182, 193, 0.1), 
+      rgba(255, 213, 79, 0.1), 
+      rgba(165, 214, 167, 0.1), 
+      rgba(149, 195, 232, 0.1), 
+      rgba(179, 157, 219, 0.1)
+    );
+  filter: blur(40px);
+  transform: rotate(-5deg);
+  animation: rainbow-shift 20s linear infinite;
+}
+
+/* Coffee theme decorations - Enhanced coffee elements */
+.theme-coffee .coffee-bean-1 {
+  width: 100px;
+  height: 150px;
+  background: radial-gradient(ellipse at center, rgba(168, 123, 81, 0.3), transparent 70%);
+  border-radius: 50% / 60% 60% 40% 40%;
+  top: 15%;
+  right: 20%;
+  transform: rotate(30deg);
+  animation: rotate 30s linear infinite;
+  box-shadow: inset 0 0 20px rgba(113, 80, 49, 0.2);
+}
+
+.theme-coffee .coffee-bean-2 {
+  width: 80px;
+  height: 120px;
+  background: radial-gradient(ellipse at center, rgba(168, 123, 81, 0.3), transparent 70%);
+  border-radius: 50% / 60% 60% 40% 40%;
+  bottom: 20%;
+  left: 15%;
+  transform: rotate(-20deg);
+  animation: rotate 25s linear infinite reverse;
+  box-shadow: inset 0 0 15px rgba(113, 80, 49, 0.2);
+}
+
+.theme-coffee .coffee-bean-3 {
+  width: 60px;
+  height: 90px;
+  background: radial-gradient(ellipse at center, rgba(168, 123, 81, 0.3), transparent 70%);
+  border-radius: 50% / 60% 60% 40% 40%;
+  top: 50%;
+  left: 25%;
+  transform: rotate(45deg);
+  animation: rotate 20s linear infinite;
+  box-shadow: inset 0 0 10px rgba(113, 80, 49, 0.2);
+}
+
+.theme-coffee .coffee-stain {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(ellipse at center, rgba(113, 80, 49, 0.1), transparent 70%);
+  border-radius: 50% 40% 45% 50%;
+  bottom: 10%;
+  right: 10%;
+  transform: rotate(45deg);
+  opacity: 0.3;
+  filter: blur(5px);
+}
+
+/* Add coffee texture to coffee theme */
+.theme-coffee::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 45c-8.284 0-15-6.716-15-15 0-8.284 6.716-15 15-15 8.284 0 15 6.716 15 15 0 8.284-6.716 15-15 15zm0-25c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10z' fill='%23a87b51' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* Add coffee steam to coffee theme */
+.theme-coffee::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 0;
+  height: 200px;
+  background: 
+    radial-gradient(ellipse at center, 
+      rgba(245, 241, 235, 0.1) 0%, 
+      transparent 70%
+    );
+  filter: blur(20px);
+  animation: steam 15s ease infinite alternate;
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes move-x {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes move-y {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.15; }
+  50% { transform: scale(1.05); opacity: 0.2; }
+}
+
+@keyframes aurora {
+  0% { transform: skewY(-5deg) translateY(-50%) translateX(-20%); opacity: 0.5; }
+  25% { opacity: 0.3; }
+  50% { transform: skewY(-2deg) translateY(-60%) translateX(0%); opacity: 0.5; }
+  75% { opacity: 0.3; }
+  100% { transform: skewY(-5deg) translateY(-50%) translateX(20%); opacity: 0.5; }
+}
+
+@keyframes shifting {
+  0% { background-position: 0 0, 0 20px, 20px -20px, -20px 0px; }
+  100% { background-position: 40px 40px, 40px 60px, 60px 20px, 20px 40px; }
+}
+
+@keyframes rainbow-shift {
+  0% { transform: rotate(-5deg) translateX(-5%); }
+  50% { transform: rotate(-3deg) translateX(5%); }
+  100% { transform: rotate(-5deg) translateX(-5%); }
+}
+
+@keyframes steam {
+  0% { transform: translateY(0) scaleX(1); opacity: 0.1; }
+  50% { transform: translateY(-30px) scaleX(1.2); opacity: 0.15; }
+  100% { transform: translateY(-10px) scaleX(0.8); opacity: 0.1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .decorator-element {
+    opacity: 0.1; /* Reduce opacity on mobile */
+  }
+}
+
+/* Add chat-specific decorator container */
+.chatroom-container .theme-decorator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+/* Make sure patterns don't affect scrolling in the chat */
+.messages-container .decorator-element,
+.messages-container::before,
+.messages-container::after {
+  pointer-events: none;
+} 

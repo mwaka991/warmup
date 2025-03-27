@@ -1,0 +1,196 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+  background-color: var(--color-background, white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
+  overflow: hidden;
+}
+
+/* Profile avatars in chat */
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: var(--avatar-shadow, 0 2px 5px rgba(0, 0, 0, 0.2));
+  flex-shrink: 0;
+}
+
+/* Header with user avatar */
+.header-with-avatar {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--header-with-avatar-bg, var(--color-background, #f8f9fa));
+  border-bottom: var(--header-with-avatar-border, 1px solid var(--color-divider, #e0e0e0));
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-with-avatar .profile-avatar {
+  margin-right: 12px;
+  border: 2px solid var(--color-primary, #4a90e2);
+}
+
+.avatar-text {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-text, #333);
+}
+
+/* Messages container */
+.messages-container {
+  padding: 15px;
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Message container with avatar */
+.message-container {
+  display: flex;
+  align-items: flex-start;
+  max-width: 90%;
+}
+
+.message-avatar-container {
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* Own message (sent by current user) */
+.own-message {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}
+
+.own-message .message-avatar-container {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.own-message .profile-avatar {
+  border-color: var(--color-primary, #4a90e2);
+}
+
+.other-message .profile-avatar {
+  border-color: var(--color-secondary, #3a7bc8);
+}
+
+/* Message styling */
+.message {
+  border-radius: var(--radius-large, 12px);
+  padding: 12px 15px;
+  max-width: calc(100% - 50px);
+  position: relative;
+  box-shadow: var(--shadow-small, 0 1px 3px rgba(0, 0, 0, 0.1));
+}
+
+.message.own {
+  background-color: var(--color-ownMessage, #e3f2fd);
+  color: var(--color-ownMessageText, #2c3e50);
+  border-top-right-radius: 4px;
+}
+
+.message.other {
+  background-color: var(--color-otherMessage, #f1f1f1);
+  color: var(--color-otherMessageText, #2c3e50);
+  border-top-left-radius: 4px;
+}
+
+.message-sender {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: var(--color-secondary, #3a7bc8);
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-text {
+  word-break: break-word;
+}
+
+.message-time {
+  font-size: 12px;
+  opacity: 0.7;
+  align-self: flex-end;
+  margin-top: 5px;
+}
+
+/* Avatar loading/error states */
+.profile-avatar.loading,
+.profile-avatar.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  color: #666;
+  font-size: 12px;
+}
+
+/* Chat input form */
+.chat-form {
+  display: flex;
+  padding: 15px;
+  background-color: var(--color-background, white);
+  border-top: 1px solid var(--color-divider, #e0e0e0);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.chat-input {
+  flex-grow: 1;
+  border: 1px solid var(--color-divider, #ddd);
+  border-radius: var(--radius-medium, 8px);
+  padding: 12px 15px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.chat-input:focus {
+  border-color: var(--color-primary, #4a90e2);
+}
+
+.send-button {
+  background-color: var(--color-primary, #4a90e2);
+  color: white;
+  border: none;
+  border-radius: var(--radius-medium, 8px);
+  padding: 0 20px;
+  margin-left: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.send-button:hover {
+  background-color: var(--color-secondary, #3a7bc8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chat-container {
+    height: calc(100vh - 80px);
+  }
+  
+  .profile-avatar {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .message-container {
+    max-width: 100%;
+  }
+} 

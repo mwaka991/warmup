@@ -1,0 +1,354 @@
+/* Add these styles to your existing Navigation.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary, #4a90e2);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.navbar-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.navbar-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+/* Profile link styling */
+.profile-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  background-color: var(--color-background, #f5f7fa);
+}
+
+.profile-item:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-text {
+  margin-left: 8px;
+}
+
+/* Authentication buttons */
+.auth-button {
+  border: 2px solid white;
+  font-weight: bold;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.login-button {
+  background-color: transparent;
+}
+
+.login-button:hover {
+  background-color: white;
+  color: var(--primary, #4a90e2);
+}
+
+.signup-button {
+  background-color: white;
+  color: var(--primary, #4a90e2);
+}
+
+.signup-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 6px;
+  border: 1px solid white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.avatar-small {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .navbar-brand {
+    margin-bottom: 1rem;
+  }
+  
+  .navbar-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .navbar-item {
+    margin: 0.25rem;
+  }
+  
+  .user-avatar {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.nav-container {
+  width: 100%;
+  background-color: var(--color-cardBackground, white);
+  border-bottom: 1px solid var(--color-divider, #e1e4e8);
+  box-shadow: var(--shadow-small, 0 2px 10px rgba(0, 0, 0, 0.05));
+  padding: 0 24px;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 70px;
+  width: 100%;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--color-text, #333);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.nav-logo img {
+  height: 36px;
+  width: auto;
+}
+
+.nav-logo span {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary, #4a90e2);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--color-textSecondary, #7f8c8d);
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  background-color: rgba(var(--color-primary-rgb, 74, 144, 226), 0.1);
+  color: var(--color-primary, #4a90e2);
+}
+
+.nav-link.active {
+  color: var(--color-primary, #4a90e2);
+  font-weight: 600;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 24px;
+  transition: all 0.2s;
+}
+
+.user-menu:hover {
+  background-color: rgba(var(--color-primary-rgb, 74, 144, 226), 0.1);
+}
+
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--color-text, #333);
+  font-size: 15px;
+}
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text, #333);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-color: var(--color-cardBackground, white);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-menu .nav-link {
+  padding: 15px 0;
+  font-size: 18px;
+  border-bottom: 1px solid var(--color-divider, #e1e4e8);
+}
+
+/* Theme-specific styles */
+:root[data-theme="dark"] .hamburger-line {
+  background-color: var(--color-text, #f1f1f1);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .nav-container {
+    padding: 0 16px;
+  }
+  
+  .nav-content {
+    height: 60px;
+  }
+  
+  .nav-logo span {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .hamburger-menu {
+    display: flex;
+  }
+  
+  .nav-logo img {
+    height: 30px;
+  }
+  
+  .user-menu {
+    padding: 4px 8px;
+  }
+  
+  .user-avatar {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .user-name {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+  }
+} 

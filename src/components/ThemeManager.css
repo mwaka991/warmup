@@ -1,0 +1,332 @@
+.theme-manager-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--background, #fff);
+  border-radius: var(--radius-medium, 8px);
+  box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.theme-manager-container h2 {
+  color: var(--text, #333);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.theme-message {
+  padding: 1rem;
+  border-radius: var(--radius-small, 4px);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.theme-message.success {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: var(--success, #27ae60);
+  border: 1px solid var(--success, #2ecc71);
+}
+
+.theme-message.error {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: var(--error, #c0392b);
+  border: 1px solid var(--error, #e74c3c);
+}
+
+.theme-tabs {
+  display: flex;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--divider, #e1e4e8);
+}
+
+.theme-tab {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--textSecondary, #7f8c8d);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-tab:hover {
+  color: var(--primary, #4a90e2);
+}
+
+.theme-tab.active {
+  color: var(--primary, #4a90e2);
+  border-bottom: 2px solid var(--primary, #4a90e2);
+}
+
+/* Preview Tab */
+.theme-preview {
+  padding: 1rem;
+}
+
+.theme-preview h3 {
+  color: var(--text, #333);
+  margin-bottom: 0.5rem;
+}
+
+.theme-description {
+  color: var(--textSecondary, #7f8c8d);
+  margin-bottom: 2rem;
+}
+
+.preview-elements {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.preview-section {
+  background-color: var(--cardBackground, #fff);
+  border-radius: var(--radius-medium, 8px);
+  box-shadow: var(--shadow-small, 0 2px 5px rgba(0, 0, 0, 0.05));
+  padding: 1.5rem;
+}
+
+.preview-section h4 {
+  margin-bottom: 1rem;
+  color: var(--text, #333);
+  border-bottom: 1px solid var(--divider, #e1e4e8);
+  padding-bottom: 0.5rem;
+}
+
+.color-samples {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.color-sample {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-box {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-small, 4px);
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--divider, #e1e4e8);
+}
+
+.color-name {
+  font-size: 0.8rem;
+  color: var(--textSecondary, #7f8c8d);
+  text-align: center;
+}
+
+.typography-samples {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.font-sample {
+  margin: 0;
+}
+
+.heading-font {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.body-font {
+  font-size: 1rem;
+}
+
+.mono-font {
+  font-size: 0.9rem;
+}
+
+.component-samples {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.message-sample {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.message-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message-content {
+  max-width: 60%;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-medium, 8px);
+}
+
+.own-message {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.own-message .message-avatar {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.own-message .message-content {
+  border-top-right-radius: 4px;
+}
+
+.other-message .message-content {
+  border-top-left-radius: 4px;
+}
+
+.message-sender {
+  font-weight: bold;
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+.button-sample {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.button-sample:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Selection Tab */
+.theme-selection {
+  padding: 1rem;
+}
+
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.theme-card {
+  border: 2px solid transparent;
+  border-radius: var(--radius-medium, 8px);
+  overflow: hidden;
+  box-shadow: var(--shadow-small, 0 2px 5px rgba(0, 0, 0, 0.05));
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.theme-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.theme-card.selected {
+  border-width: 2px;
+  transform: scale(1.03);
+  box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.theme-card-header {
+  padding: 1rem;
+  text-align: center;
+}
+
+.theme-card-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.theme-card-body {
+  padding: 1rem;
+  background-color: var(--cardBackground, #fff);
+}
+
+.theme-card-body p {
+  margin-top: 0;
+  font-size: 0.9rem;
+  color: var(--textSecondary, #7f8c8d);
+  margin-bottom: 1rem;
+  height: 40px;
+}
+
+.theme-color-preview {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.color-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--divider, #e1e4e8);
+}
+
+.theme-selection-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.apply-theme-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary, #4a90e2);
+  color: white;
+  border: none;
+  border-radius: var(--radius-medium, 8px);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.apply-theme-button:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.apply-theme-button:disabled {
+  background-color: var(--divider, #e1e4e8);
+  color: var(--textSecondary, #7f8c8d);
+  cursor: not-allowed;
+}
+
+.admin-note {
+  color: var(--textSecondary, #7f8c8d);
+  font-style: italic;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .preview-elements {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .preview-section:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-manager-container {
+    padding: 1rem;
+  }
+  
+  .themes-grid {
+    grid-template-columns: 1fr;
+  }
+} 

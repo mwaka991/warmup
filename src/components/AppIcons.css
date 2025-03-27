@@ -1,0 +1,67 @@
+/* AppIcons.css */
+.app-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+/* Icon-specific styles */
+.admin-icon {
+  color: var(--accent-color, #f39c12);
+}
+
+.signout-icon {
+  color: var(--danger-color, #e74c3c);
+}
+
+.chat-icon {
+  color: var(--success-color, #2ecc71);
+}
+
+.theme-icon {
+  color: var(--primary-color, #3498db);
+}
+
+.title-icon {
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
+  color: var(--primary-color, #3498db);
+}
+
+/* Icon animations */
+.title-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Make icons respond to theme changes */
+.app-icon {
+  transition: color 0.3s ease-in-out;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .app-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .title-icon {
+    width: 36px;
+    height: 36px;
+  }
+} 

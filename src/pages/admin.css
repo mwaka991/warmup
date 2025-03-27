@@ -1,0 +1,143 @@
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #333;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.admin-header h1 {
+  font-size: 36px;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.admin-header p {
+  font-size: 18px;
+  color: #7f8c8d;
+}
+
+.admin-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.admin-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+.admin-card h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.admin-card p {
+  margin-bottom: 20px;
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.admin-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 16px;
+}
+
+.admin-button {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.admin-button:hover {
+  background-color: #3a7bc8;
+  transform: translateY(-2px);
+}
+
+.admin-button.secondary {
+  background-color: #ecf0f1;
+  color: #7f8c8d;
+}
+
+.admin-button.secondary:hover {
+  background-color: #dde4e6;
+}
+
+.admin-button.danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.admin-button.danger:hover {
+  background-color: #c0392b;
+}
+
+.danger-zone {
+  border: 1px solid #e74c3c;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 16px;
+  margin-bottom: 15px;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.admin-status {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.admin-status.success {
+  background-color: #e8f7ef;
+  color: #27ae60;
+}
+
+.admin-status.error {
+  background-color: #fdedeb;
+  color: #e74c3c;
+}
+
+.admin-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .admin-content {
+    grid-template-columns: 1fr;
+  }
+} 

@@ -1,0 +1,218 @@
+.message-container {
+  display: flex;
+  margin-bottom: 16px;
+  align-items: flex-start;
+  max-width: 85%;
+  animation: fadeIn 0.3s ease;
+  position: relative;
+  width: fit-content;
+}
+
+.message-avatar-container {
+  flex-shrink: 0;
+  margin: 0 5px;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.message-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid white;
+}
+
+.own-message {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.other-message {
+  margin-right: auto;
+}
+
+.message-content {
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 15px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 0 8px;
+  min-width: 120px;
+}
+
+.own-message .message-content {
+  background-color: var(--color-primary, #4a90e2);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.other-message .message-content {
+  background-color: var(--color-cardBackground, white);
+  color: var(--color-text, #333);
+  border-bottom-left-radius: 4px;
+}
+
+.same-sender {
+  margin-top: -8px;
+}
+
+.same-sender .message-avatar-container {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  width: 0;
+}
+
+/* Apply different styles based on theme */
+:root[data-theme="dark"] .other-message .message-content {
+  background-color: var(--color-cardBackground, #282c34);
+  color: var(--color-text, #f1f1f1);
+}
+
+:root[data-theme="pastel"] .own-message .message-content {
+  background-color: var(--color-primary, #9370db);
+}
+
+:root[data-theme="pastel"] .other-message .message-content {
+  background-color: var(--color-cardBackground, #f8f5ff);
+}
+
+:root[data-theme="coffee"] .own-message .message-content {
+  background-color: var(--color-primary, #a87b51);
+}
+
+:root[data-theme="coffee"] .other-message .message-content {
+  background-color: var(--color-cardBackground, #f9f5f0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles for different screen sizes */
+@media (max-width: 768px) {
+  .message-container {
+    max-width: 90%;
+  }
+  
+  .message-content {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  
+  .message-avatar {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Message actions (reply, etc.) */
+.message-actions {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  display: flex;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 2px;
+  transform: translateY(-50%);
+}
+
+.message-container:hover .message-actions {
+  opacity: 1;
+}
+
+.own-message .message-actions {
+  right: auto;
+  left: 0;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  color: var(--color-text, #333);
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+  border-radius: 8px;
+}
+
+.action-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.own-message .action-button {
+  color: white;
+}
+
+.own-message .action-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Reply indicator */
+.reply-indicator {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  top: -5px;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.05);
+  margin: 0 8px;
+}
+
+.own-message .reply-indicator {
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-left: auto;
+}
+
+.reply-text {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.reply-to {
+  font-weight: 600;
+}
+
+/* Highlight replied message */
+.replied-message {
+  border-left: 3px solid var(--color-primary, #4a90e2);
+  padding-left: 6px;
+}
+
+/* Responsive adaptations */
+@media (max-width: 768px) {
+  .message-actions {
+    padding: 1px;
+  }
+  
+  .action-button {
+    padding: 2px 4px;
+    font-size: 10px;
+  }
+} 

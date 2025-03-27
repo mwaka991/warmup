@@ -1,0 +1,425 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background, #f5f7fa);
+  color: var(--color-text, #333);
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary, #4a90e2);
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-main, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+  color: var(--color-accent, #2c3e50);
+}
+
+/* Default theme fallback values */
+:root {
+  /* Colors */
+  --color-primary: #4a90e2;
+  --color-primary-rgb: 74, 144, 226;
+  --color-secondary: #3a7bc8;
+  --color-accent: #2c3e50;
+  --color-background: #f5f7fa;
+  --color-cardBackground: #ffffff;
+  --color-text: #333333;
+  --color-textSecondary: #7f8c8d;
+  --color-ownMessage: #4a90e2;
+  --color-ownMessageText: #ffffff;
+  --color-otherMessage: #ffffff;
+  --color-otherMessageText: #333333;
+  --color-error: #e74c3c;
+  --color-error-rgb: 231, 76, 60;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-info: #3498db;
+  --color-divider: #e1e4e8;
+  
+  /* Fonts */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-monospace: monospace;
+  
+  /* Border Radius */
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  --radius-large: 16px;
+  --radius-circle: 50%;
+  
+  /* Shadows */
+  --shadow-small: 0 2px 5px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading state */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: var(--color-text, #333);
+  font-weight: 500;
+  text-align: center;
+  background-image: linear-gradient(90deg, transparent, var(--color-primary, #4a90e2), transparent);
+  background-size: 200% 2px;
+  background-repeat: no-repeat;
+  background-position: 0% calc(50% + 30px);
+  animation: loading-bar 1.5s infinite;
+}
+
+@keyframes loading-bar {
+  0% { background-position: 0% calc(50% + 30px); }
+  50% { background-position: 100% calc(50% + 30px); }
+  100% { background-position: 0% calc(50% + 30px); }
+}
+
+/* CSS for the theme transition */
+body, input, textarea, button, .message-content, .chatroom-container,
+.chatroom-header, .message-form, .admin-container, .login-container,
+.home-container, .admin-card, .messages-container {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Font imports for different themes */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Page container with themed background */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Main app layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* Enhanced theme-specific container styles */
+:root[data-theme="light"] .app-container {
+  background-color: var(--color-background, #f5f7fa);
+  background-image: 
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(245, 247, 250, 0.7)),
+    linear-gradient(120deg, rgba(74, 144, 226, 0.05) 0%, rgba(74, 144, 226, 0.02) 100%);
+}
+
+:root[data-theme="dark"] .app-container {
+  background-color: var(--color-background, #121212);
+  background-image: 
+    linear-gradient(to bottom, rgba(18, 18, 18, 0.95), rgba(30, 30, 30, 0.95)),
+    radial-gradient(circle at top right, rgba(66, 165, 245, 0.15), transparent 70%);
+}
+
+:root[data-theme="pastel"] .app-container {
+  background-color: var(--color-background, #f8f9fa);
+  background-image: 
+    linear-gradient(to bottom, rgba(248, 249, 250, 0.8), rgba(248, 249, 250, 0.9)),
+    linear-gradient(120deg, rgba(179, 157, 219, 0.07) 0%, rgba(149, 195, 232, 0.07) 100%);
+}
+
+:root[data-theme="coffee"] .app-container {
+  background-color: var(--color-background, #f5f1eb);
+  background-image: 
+    linear-gradient(to bottom, rgba(245, 241, 235, 0.85), rgba(245, 241, 235, 0.95)),
+    radial-gradient(ellipse at bottom left, rgba(168, 123, 81, 0.1), transparent 70%);
+}
+
+/* Card/container enhancements */
+.card, 
+.login-container,
+.signup-container,
+.profile-container,
+.chat-container,
+.admin-container,
+.messages-container,
+.theme-manager-container {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-medium, 8px);
+  box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Theme-specific card styling */
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .login-container,
+:root[data-theme="dark"] .signup-container,
+:root[data-theme="dark"] .profile-container,
+:root[data-theme="dark"] .chat-container,
+:root[data-theme="dark"] .admin-container,
+:root[data-theme="dark"] .messages-container,
+:root[data-theme="dark"] .theme-manager-container {
+  background-color: rgba(30, 30, 30, 0.85);
+  box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.3));
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme="pastel"] .card,
+:root[data-theme="pastel"] .login-container,
+:root[data-theme="pastel"] .signup-container,
+:root[data-theme="pastel"] .profile-container,
+:root[data-theme="pastel"] .chat-container,
+:root[data-theme="pastel"] .admin-container,
+:root[data-theme="pastel"] .messages-container,
+:root[data-theme="pastel"] .theme-manager-container {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(149, 195, 232, 0.2);
+  box-shadow: 0 8px 32px rgba(179, 157, 219, 0.1);
+}
+
+:root[data-theme="coffee"] .card,
+:root[data-theme="coffee"] .login-container,
+:root[data-theme="coffee"] .signup-container,
+:root[data-theme="coffee"] .profile-container,
+:root[data-theme="coffee"] .chat-container,
+:root[data-theme="coffee"] .admin-container,
+:root[data-theme="coffee"] .messages-container,
+:root[data-theme="coffee"] .theme-manager-container {
+  background-color: rgba(252, 250, 245, 0.85);
+  border: 1px solid rgba(168, 123, 81, 0.2);
+  box-shadow: 0 8px 32px rgba(113, 80, 49, 0.08);
+}
+
+/* Enhanced decorative card corners */
+.card::after,
+.login-container::after,
+.signup-container::after,
+.profile-container::after,
+.chat-container::after,
+.admin-container::after,
+.theme-manager-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border-top: 3px solid var(--color-primary, #4a90e2);
+  border-right: 3px solid var(--color-primary, #4a90e2);
+  opacity: 0.4;
+  border-top-right-radius: var(--radius-medium, 8px);
+  z-index: 1;
+}
+
+.card::before,
+.login-container::before,
+.signup-container::before,
+.profile-container::before,
+.chat-container::before,
+.admin-container::before,
+.theme-manager-container::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-bottom: 3px solid var(--color-secondary, #3a7bc8);
+  border-left: 3px solid var(--color-secondary, #3a7bc8);
+  opacity: 0.4;
+  border-bottom-left-radius: var(--radius-medium, 8px);
+  z-index: 1;
+}
+
+/* Message list container enhanced background */
+.messages-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: var(--radius-medium, 8px);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Add subtle pattern to messages container for each theme */
+.messages-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.05;
+  border-radius: var(--radius-medium, 8px);
+  z-index: -1;
+}
+
+:root[data-theme="light"] .messages-container::before {
+  background-image: 
+    linear-gradient(45deg, #4a90e2 25%, transparent 25%),
+    linear-gradient(-45deg, #4a90e2 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #4a90e2 75%),
+    linear-gradient(-45deg, transparent 75%, #4a90e2 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+:root[data-theme="dark"] .messages-container {
+  background-color: rgba(26, 26, 26, 0.7);
+}
+
+:root[data-theme="dark"] .messages-container::before {
+  background-image: 
+    radial-gradient(circle at 10px 10px, #60a5fa 1px, transparent 1px),
+    radial-gradient(circle at 30px 30px, #60a5fa 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+:root[data-theme="pastel"] .messages-container {
+  background-color: rgba(248, 249, 250, 0.7);
+}
+
+:root[data-theme="pastel"] .messages-container::before {
+  background-image: 
+    linear-gradient(45deg, #b39ddb 25%, transparent 25%),
+    linear-gradient(-45deg, #95c3e8 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #a5d6a7 75%),
+    linear-gradient(-45deg, transparent 75%, #fff176 75%);
+  background-size: 30px 30px;
+  background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+  opacity: 0.03;
+}
+
+:root[data-theme="coffee"] .messages-container {
+  background-color: rgba(245, 241, 235, 0.7);
+}
+
+:root[data-theme="coffee"] .messages-container::before {
+  background-image: 
+    radial-gradient(ellipse at 10px 10px, #a87b51 1px, transparent 1px),
+    radial-gradient(ellipse at 30px 30px, #715031 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Chat input container enhancements */
+.chat-input-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-medium, 8px);
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  box-shadow: var(--shadow-small, 0 2px 5px rgba(0, 0, 0, 0.1));
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme="dark"] .chat-input-container {
+  background-color: rgba(44, 44, 44, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme="pastel"] .chat-input-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(149, 195, 232, 0.3);
+}
+
+:root[data-theme="coffee"] .chat-input-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(168, 123, 81, 0.3);
+}
+
+@media (min-width: 992px) {
+  .main-content {
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+}
