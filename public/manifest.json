@@ -1,5 +1,5 @@
 {
-  "short_name": "React App",
+  "short_name": "Chat Hub",
   "name": "SirTheprigrammer Chat Hub",
   "icons": [
     {
@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "flex.png",
+      "src": "SirTheProgrammer_Logo_Cropped.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "welcome.png",
+      "src": "SirTheProgrammer_Logo_Cropped.png",
       "type": "image/png",
       "sizes": "512x512"
     }
