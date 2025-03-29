@@ -7,28 +7,28 @@ const Home = ({ user }) => {
     <div className="home-container">
       {/* Main Title Section */}
       <header className="main-title-section">
-        <h1 className="site-title">SirTheProgrammer Chat Space</h1>
+        <h1 className="site-title">Davis Chat Space</h1>
       </header>
 
       {/* Hero Section */}
       <main className="hero-section">
         <div className="hero-content">
-          <h2 className="hero-title">Welcome to Our Chat Community</h2>
-          <p className="hero-subtitle">A place where ideas flow freely and connections are made</p>
+          <h2 className="hero-title">Karibu kweny jukwaa letu la kuchati</h2>
+          <p className="hero-subtitle">Sehemu pekee kwaajili ya kujipatia idea mbali mbali na kushare ujuzi</p>
           
           {!user ? (
             /* Only show when NOT logged in */
             <div className="cta-buttons">
-              <Link to="/login" className="cta-button login">Login</Link>
-              <Link to="/signup" className="cta-button signup">Sign Up</Link>
+              <Link to="/login" className="cta-button login">ingia</Link>
+              <Link to="/signup" className="cta-button signup">jisajili</Link>
             </div>
           ) : (
             /* Show when user is logged in */
             <div className="welcome-back">
               <h3>Welcome back, {user.displayName || 'Chat User'}!</h3>
-              <p>Ready to continue the conversation?</p>
+              <p>upo tayar kuendeleza mawasiliano?</p>
               <Link to="/chat" className="cta-button enter-chat">
-                Enter Chat Room
+                Ingia jukwaani
               </Link>
             </div>
           )}
@@ -38,10 +38,8 @@ const Home = ({ user }) => {
       <section className="about-section">
         <h2>Share Your Thoughts</h2>
         <p>
-          SirTheProgrammer Chat Space is a platform designed for people to connect,
-          share ideas, and engage in meaningful conversations. Whether you're looking
-          to discuss programming, technology, art, or just chat with like-minded individuals,
-          this is the place for you!
+          Davis  Chat Space ni sehemu maalumu ilioandaliwa kwaajil ya watu kushare mawazo na vitu mbali mbali kuhusiana na masuala ya kuingiza hela pia na kuhusu masuala ya
+            programminge pia na kila kitu katika maisha ya kila siku jisikie upo hurpl
         </p>
         <p>
           Every user has their own identity, making conversations more personal and
@@ -57,7 +55,7 @@ const Home = ({ user }) => {
             </svg>
           </div>
           <h3>Real-time Conversations</h3>
-          <p>Chat with other users in real-time, with instant message delivery and typing indicators.</p>
+          <p>sehemey kwaqjili ya maongez ya haraka na ya muda sahiih karibu.</p>
         </div>
 
         <div className="feature-card">
@@ -84,7 +82,7 @@ const Home = ({ user }) => {
       </div>
 
       <footer className="home-footer">
-        <p>© 2025 SirTheProgrammer Chat Space. All rights reserved.</p>
+        <p>© 2025 Davis Chat Space. All rights reserved.</p>
       </footer>
     </div>
   );
