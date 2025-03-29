@@ -292,7 +292,7 @@ function ChatRoom() {
     return (
       <div className="chatroom-container">
         <div className="loading-container">
-          <p>Loading chat room...</p>
+          <p>inapakia.......</p>
         </div>
       </div>
     );
@@ -303,7 +303,7 @@ function ChatRoom() {
     return (
       <div className="chatroom-container">
         <div className="loading-container">
-          <p>Please log in to access the chat room</p>
+          <p>Ingia kwqnza ili uweze kuchati.</p>
           <button 
             onClick={() => navigate("/login")} 
             className="login-redirect-button"
@@ -321,7 +321,7 @@ function ChatRoom() {
         <div className="chatroom-title">
           <h1>
             <Icon type={ICON_TYPES.CHAT} size="medium" className="header-icon" />
-            SirTheProgrammer Chat Space
+            DAvis Chat Space
           </h1>
           <p className="online-status">
             <span className="status-dot"></span>
@@ -359,7 +359,7 @@ function ChatRoom() {
       <div className="chat-container">
         <div className="messages-container" id="messages-container" ref={messagesEndRef}>
           {loading ? (
-            <div className="loading-messages">Loading messages...</div>
+            <div className="loading-messages">inapakia meseji...</div>
           ) : messages.length === 0 ? (
             <div className="no-messages">No messages yet. Start the conversation!</div>
           ) : (
@@ -418,7 +418,7 @@ function ChatRoom() {
             />
             <button type="submit" className="send-button" aria-label="Send message">
               <Icon type={ICON_TYPES.SEND} size="small" className="send-icon" />
-              <span className="send-text">Send</span>
+              <span className="send-text">Tuma</span>
             </button>
           </form>
         </div>
